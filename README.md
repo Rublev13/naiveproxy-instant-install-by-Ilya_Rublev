@@ -51,7 +51,7 @@
 **Подключитесь к вашему серверу по SSH под пользователем `root` и выполните всего одну команду:**
 
 ```bash
-bash <(curl -Ls [https://raw.githubusercontent.com/Rublev13/naiveproxy-instant-install-by-Ilya_Rublev/main/install.sh](https://raw.githubusercontent.com/Rublev13/naiveproxy-instant-install-by-Ilya_Rublev/main/install.sh))
+bash <(curl -Ls https://raw.githubusercontent.com/Rublev13/naiveproxy-instant-install-by-Ilya_Rublev/main/install.sh)
 ```
 ### В конце установки скрипт выдаст вам сгенерированные логин и пароль а также подключение для v2rayN в формате json, к слову, логин и пароль можно поменять по вашему желанию, зайдя в Caddy.
 ## 🛠 Как работает скрипт (Разбор команд)
