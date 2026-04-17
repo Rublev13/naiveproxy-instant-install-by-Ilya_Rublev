@@ -7,7 +7,7 @@
 **Работоспособность скрипта регулярно проверяется на Ubuntu 24.04 LTS**
 
 ---
----
+
 
 ## ⚠️ ВАЖНЫЙ ДИСКЛЕЙМЕР (Юридическое уведомление)
 
@@ -64,6 +64,8 @@ apt update && apt upgrade -y
 apt install -y wget curl nano ufw tar libcap2-bin
 ```
 **Скрипт обновляет пакетную базу ОС и устанавливает базовые утилиты, необходимые для скачивания файлов и настройки фаервола.**
+
+### 2. Оптимизация сети (BBR)
 ```
 net.core.default_qdisc=fq
 net.ipv4.tcp_congestion_control=bbr
@@ -71,8 +73,10 @@ sysctl -p
 ```
 **Включает алгоритм контроля перегрузок TCP BBR от Google. Это критически важно для прокси-серверов: значительно снижает задержки (пинг) и увеличивает скорость передачи данных, особенно в сетях с потерями пакетов.**
 
-**3. Установка среды Go (Golang)
+### 3. Установка среды Go (Golang)
 NaiveProxy интегрируется в веб-сервер Caddy, написанный на языке Go. Скрипт скачивает официальный архив go1.22.1, распаковывает его в /usr/local/go и добавляет в системные пути (PATH) для работы компилятора.**
+
+### 4. Компиляция Caddy + NaiveProxy
 ```
 xcaddy build --with [github.com/caddyserver/forwardproxy@caddy2=github.com/klzgrad/forwardproxy@naive](https://github.com/caddyserver/forwardproxy@caddy2=github.com/klzgrad/forwardproxy@naive)
 setcap cap_net_bind_service=+ep /usr/bin/caddy
